@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block bodyblock %}
+<h3>Display All Volunteer to the locations</h3>
+<div class="row">
+  <div class="col-10">
+    <table class="table table-bordered">
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>District</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <!-- <th>View Donation</th> -->
+      </tr>
+      {% for volunteer in volunteers %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{volunteer.profile.first_name}} {{volunteer.profile.last_name}}</td>
+        <td>{{volunteer.district}}</td>
+        <td>{{volunteer.address}}</td>
+        <td>{{volunteer.phoneNo}}</td>
+        <p>Links</p>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+{% endblock %}
+
+<!-- {% for donation in donor.profile.donations.all %}
+            <h4>{{donation.productName}}</h4>
+            <h5>{{donation.description}}</h5>
+            <h6>{{donation.createDate|date:'M d,Y'}}</h6>
+            <p>{{donation.status}}</p>
+            <!-- <td><a href="{% url 'appVolunteer:viewDonations' pk=donor.profile.id %}">View Donations</a></td> -->
+{% endfor %} -->
